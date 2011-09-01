@@ -67,7 +67,7 @@ carefully, and check that you've got the components oriented correctly with the 
 - The S212S01F solid-state relay has a maximum load current of 12 A, although in this case the shunt resistor limits the circuit's load current to 10 A.
 - A heatsink will probably be required on the solid-state relay.
 
-- The current-sense shunt resistor is 10 milliohms, 5 watts. Digi-Key PWR4413DR050F-ND is the recommended device.
+- The current-sense shunt resistor is 10 milliohms, 5 watts. Digi-Key 989-1097-ND is the recommended device.
 
 Check the following carefully during assembly:
 
