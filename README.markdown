@@ -1,12 +1,12 @@
-*SEG Plug v0.5 (preliminary)*
-*Single-channel, single-phase, portable, wireless smart energy appliance*
+**SEG Plug v0.5 (preliminary)**
+**Single-channel, single-phase, portable, wireless smart energy appliance**
 
 Design by Luke Weston, 2011-2012
 Released as Open Hardware under the CERN Open Hardware License.
 
 github.com/lukeweston/SEGplug
 
-*General background notes and safety notes, and guidelines for reliable use*:
+**General background notes and safety notes, and guidelines for reliable use**:
 
 No hardware prototype of this design has been built yet. It might not work at all, it might catch fire, it might explode. Right now, no real support or warranty is even
 remotely possible until a prototype is built.
@@ -49,7 +49,7 @@ the present time this has not been tested and is not supported at all.
 The control pushbutton must be rated for 250VAC use. If there is not sufficient electrical isolation between the switch contacts and the plastic switch actuator, an electric
 shock hazard may exist during use of the button.
 
-*Construction notes*:
+**Construction notes**:
 
 In order to prevent electric shock, fire, explosion, death, etc, careful quality control is required if you're assembling this unit from a kit yourself. Solder everything
 carefully, and check that you've got the components oriented correctly with the right kinds of components in the right places.
@@ -57,15 +57,15 @@ carefully, and check that you've got the components oriented correctly with the 
 The 470 uF electrolytic capacitor must be installed with the correct polarity, and the AVR microcontroller must be soldered in with the right orientation.
 The 5 different diodes in the circuit all must be installed with the correct polarity and with the right type of diode used in the right spot on the PCB.
 
-*Microcontroller notes, and wireless programming*:
+**Microcontroller notes, and wireless programming**:
 
 The AVR (which is essentially an Arduino, if it is programmed with an Arduino bootloader) can be reprogrammed remotely via the XBee, if it is programmed with the Arduino
 bootloader. Follow the directions here:
 
 http://www.ladyada.net/make/xbee/arduino.html
 
-Note that the hardware configuration at the remote end is already implemented on the board... the XBee modules just need to be configured appropriately and the host end
-set up for wireless programming.
+Note that the hardware configuration at the remote end is already implemented on the board... the XBee modules just need to be configured appropriately and the XBee module
+at the host end appropriately connected to a UART interface to the PC.
 
 Note that the AVR is clocked from an 8 MHz crystal and it is running at 3.3 V. Therefore, the Arduino IDE must be told that the target device is a 3.3V 8 MHz Arduino prior to
 programming.
@@ -74,11 +74,11 @@ It is perfectly fine to perform XBee wireless communications and XBee program do
 
 During "wired" flashing or programming (either with the ISP programmer or with a FTDI serial cable), the XBee module must be removed from its socket.
 
-*Temperature sensor*:
+**Temperature sensor**:
 
-A Microchip MCP9701 temperature sensor IC with a linear analog output is used to replace the relativly expensive DS18B20 temperature sensor.
+A substantially cheaper Microchip MCP9701 temperature sensor IC with a linear analog output is used to replace the relativly expensive DS18B20 temperature sensor.
 
-*Measurement resolution*:
+**Measurement resolution**:
 
 The power measurement resolution or "granularity" should be about 2.5W per LSB, when operating from 230VAC.
 
