@@ -1,10 +1,14 @@
-**SEG Plug v0.5 (preliminary)**
+**SEG Plug v0.5 (preliminary)**:
 **Single-channel, single-phase, portable, wireless smart energy appliance**
 
-Design by Luke Weston, 2011-2012
+Design by Luke Weston, 2011-2012.
 Released as Open Hardware under the CERN Open Hardware License.
 
 github.com/lukeweston/SEGplug
+
+[foo]: https://github.com/lukeweston/SEGPlug/blob/master/SEGplug-pcb.png?raw=true "Foo"
+
+![foo][foo]
 
 **General background notes and safety notes, and guidelines for reliable use**:
 
@@ -14,13 +18,13 @@ remotely possible until a prototype is built.
 Just so that we're very clear here, I'm not liable at all if you try and build this and it burns your house down and kills your family.
 
 This device uses a non-isolated, transformerless mains power supply, with the mains active serving as the local DC ground.
-What this means is that all parts of the device, including the microcontroller, XBee module, temperature sensor, light and PIR sensors if they're connected, are at mains
-potential when the device is powered up, and they are an electric shock hazard. Do not not poke around with this device while it is powered up, with the device not mounted
-within a safe, insulated box, unless you know exactly what you're doing.
+What this means is that all parts of the device, including the microcontroller, XBee module, temperature sensor, and the light and PIR sensors if they're connected, are at
+mains potential when the device is plugged in, and they are an electric shock hazard. Do not not poke around with this device while it is powered up, with the device not
+mounted within a safe, insulated box, unless you know exactly what you're doing.
 
 Also, DO NOT plug the device into any kind of FTDI cable, ISP programmer or any other serial communications interface or programming interface while it is plugged into the
-mains. If you do, this will connect your computer's 5V rail across 240VAC, and your computer will be destroyed and will probably explode or something, as well as presenting
-an electric shock hazard. So don't do it.
+mains. If you do, this will connect your computer's local DC ground to the 240VAC active, and your computer will be destroyed and will probably explode or something, as well
+as presenting an electric shock hazard. So don't do it.
 
 It's OK to plug those kinds of interfaces in for programming, obviously, just make damned sure that the mains is unplugged first.
 
@@ -37,7 +41,7 @@ High current means low capacitive reactance which means relatively big capacitor
 
 Only use standard low-power XBee modules with this unit. The high-performance, relatively high power variants like the "XBee Pro" probably won't work.
 
-It would probably be possible to build a safe, optically-isolated plug-in serial cable interface for your computer if something like that was required... but at this point in
+It would straightforward to design a safe, optically-isolated plug-in serial cable interface for your computer if something like that was required... but at this point in
 time, no such device exists and plugging the unit into your computer (unless the mains is disconnected) is a big no-no.
 
 The maximum power rating of the unit is 10 A at 240 VAC. Do not exceed this limit.
@@ -46,7 +50,7 @@ This device is designed for use with 240 VAC mains only. Do not use in a country
 capacitive reactance in the mains neutral so that it is OK with 120 VAC operation (which probably means changing the 2.2 uF capacitor to about double its capacitance), but at
 the present time this has not been tested and is not supported at all.
 
-The control pushbutton must be rated for 250VAC use. If there is not sufficient electrical isolation between the switch contacts and the plastic switch actuator, an electric
+The control pushbutton must be rated for mains use. If there is not sufficient electrical isolation between the switch contacts and the plastic switch actuator, an electric
 shock hazard may exist during use of the button.
 
 **Construction notes**:
@@ -67,16 +71,16 @@ http://www.ladyada.net/make/xbee/arduino.html
 Note that the hardware configuration at the remote end is already implemented on the board... the XBee modules just need to be configured appropriately and the XBee module
 at the host end appropriately connected to a UART interface to the PC.
 
-Note that the AVR is clocked from an 8 MHz crystal and it is running at 3.3 V. Therefore, the Arduino IDE must be told that the target device is a 3.3V 8 MHz Arduino prior to
+Note that the AVR is clocked from an 8 MHz crystal and it is running at 3.3V. Therefore, the Arduino IDE must be told that the target device is a 3.3V 8 MHz Arduino prior to
 programming.
 
 It is perfectly fine to perform XBee wireless communications and XBee program downloads while the device is plugged into the mains power supply, of course.
 
-During "wired" flashing or programming (either with the ISP programmer or with a FTDI serial cable), the XBee module must be removed from its socket.
+During "wired" flashing or programming (either with the ISP programmer or with a FTDI serial cable), the *XBee module must be removed from its socket*.
 
 **Temperature sensor**:
 
-A substantially cheaper Microchip MCP9701 temperature sensor IC with a linear analog output is used to replace the relativly expensive DS18B20 temperature sensor.
+A substantially cheaper Microchip MCP9701 temperature sensor IC with a linear analog output is used to replace the relatively expensive DS18B20 temperature sensor.
 
 **Measurement resolution**:
 
