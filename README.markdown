@@ -6,9 +6,7 @@ Released as Open Hardware under the CERN Open Hardware License.
 
 github.com/lukeweston/SEGplug
 
-[foo]: https://github.com/lukeweston/SEGPlug/blob/master/SEGplug-pcb.png?raw=true "Foo"
-
-![foo][foo]
+![Alt text](https://github.com/lukeweston/SEGPlug/raw/master/SEGplug-pcb.png)
 
 **General background notes and safety notes, and guidelines for reliable use**:
 
