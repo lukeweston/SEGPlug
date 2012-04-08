@@ -1,0 +1,50 @@
+SEGPlug Bill of Materials
+							
+Qty		Component IDs		Value			Packaging			Digi-Key SKU		Unit Price (USD)	Subtotal	Notes
+
+Resistors
+5		R2, R3, R4, R9, R13	10 k			0805 SMD			311-10KARCT-ND		0.0170			0.0850	
+4		R5, R10, R21, R23	100 k 1%		0805 SMD			311-100KCRCT-ND		0.0200			0.0800	
+2		R6, R12			2.2 k 1%		0805 SMD			311-2.20KCRCT-ND	0.0200			0.0400	
+3		R7, R8, R22		1 k			0805 SMD			311-1.0KARCT-ND		0.0170			0.0510	
+2		R11, R19		13 k 1%			0805 SMD			RMCF0805FT13K0CT-ND	0.0400			0.0800	
+1		R15			1 M			0805 SMD			311-1.0MARCT-ND		0.0170			0.0170	
+1		R1			CdS LDR			Small through-hole LDR		PDV-P8103-ND		0.8000			0.8000	
+2		R14a, R14b		220R 5W			Large ceramic through-hole	UB5C-220-ND		0.8400			1.6800	
+3		R16, R17, R18		680k 1%			1206 SMD			311-680KFRCT-ND		0.0320			0.0960	
+1		R20			5 milliohms 5W		Through-hole			989-1096-ND		1.0000			1.0000	
+							
+Capacitors							
+1		C13			3.3 uF 250VAC		Large through-hole		495-4138-ND		2.9300			2.9300	
+8		C1-C5, C10, C11, C12	100 nF, 50V		0805 SMD ceramic		311-1361-1-ND		0.0310			0.2480	
+1		C6			470 uF, 16V		3.5 mm pitch, 8mm dia.		565-1678-ND		0.4100			0.4100	
+1		C7			22 uF, 50V		1206 SMD ceramic		490-1824-1-ND		0.3600			0.3600	
+2		C8, C9			27 pF, 50V		0805 SMD ceramic		311-1104-1-ND		0.0620			0.1240	
+							
+Semiconductors							
+1		D1			CGRM4004-G		SOD-123				641-1329-1-ND		0.4100			0.4100	
+1		D2			PMLL4148		Mini-MELF			568-1749-1-ND		0.1200			0.1200	
+2		ZD1, ZD3		3.6 V Zener diode	SOD-323				568-8044-1-ND		0.2700			0.5400	
+1		ZD2			13 V Zener diode	DO-214AC			3SMAJ5928B-TPMSCT-ND	0.5800			0.5800	
+1		LED1			Red LED (Power)		0805 SMD			475-1278-1-ND		0.1100			0.1100	
+1		LED2			Green LED (Relay)	0805 SMD			754-1131-1-ND		0.1600			0.1600	
+1		LED3			Yellow LED (Status)	0805 SMD			754-1135-1-ND		0.1600			0.1600	
+2		Q1, Q3			2N7002 MOSFET		SOT23				568-5818-1-ND		0.1400			0.2800	
+1		Q2			8 MHz crystal		5mm x 3mm SMD			535-9720-1-ND		1.4300			1.4300	
+1		IC2			OPA340NA		SOT-23 5-pin			OPA340NACT-ND		2.9300			2.9300	
+1		IC1			MCP9701			TO-92				MCP9701A-E/TO-ND	0.3400			0.3400	
+1		IC4			LD1117S33		SOT-223				497-1241-1-ND		0.4800			0.4800	
+1		IC5			ATmega328		TQFP32				ATMEGA328-AU-ND		3.8300			3.8300	
+1		IC1			XBee Module		N/A				
+							
+Miscellaneous							
+1		RY1			Relay							Z223-ND			3.1800			3.1800	
+2		N/A			2.0 mm 10-pin header socket 				S5751-10-ND		1.1100			2.2200	
+2		J2, J4			6-pin 0.1" male header					3M9451-ND		0.3300			0.6600	
+							
+																	Total:	25.4310
+																(Excludes XBee and PCBs and shipping.)
+																
+																
+																
+																
