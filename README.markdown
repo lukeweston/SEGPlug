@@ -1,24 +1,48 @@
-**SEG Plug v0.5 (preliminary)**:
-**Single-channel, single-phase, portable, wireless smart energy appliance**
 
-Design by Luke Weston, 2011-2012.
-Released as Open Hardware under the CERN Open Hardware License.
+**SEGPlug: A single-channel, single-phase, portable, wireless mesh-networked smart energy data acquisition and control appliance**
 
-github.com/lukeweston/SEGplug
+Design by Luke Weston, 2011-2012
+(c) Luke Weston 2011-2012
+This hardware design is released to you under the CERN Open Hardware License: http://ohwr.org/cernohl
+
+The Smart Energy Groups SEGPlug is a small, visually unintrusive and portable device which plugs in to a domestic mains power outlet or cable and plugs into a mains-powered
+load device. It is (with a small hardware reconfiguration) compatible with worldwide mains power grids, at 110-240VAC and 50-60 Hz. This "Internet of Things" device collects
+data from its sensors and data acquisition circuits and transmits this data to a distributed network and ultimately to the Internet and receives commands from a distributed
+network and/or the Internet and responds to such commands, for example by switching its onboard power relay on or off. 
+
+SEGPlug acquires the voltage waveform across the load device(s) and the current waveform being consumed by the load device(s) and calculates instantaneous power draw as well
+as energy consumption integrated across some period of time, and complex AC power characteristics such as phase angle, reactive power and power factor.
+
+SEGPlug also incorporates a relay allowing the power supply to the load device to be completely switched off and switched on at the command of the device's (very low power)
+internal microcontroller.
+
+SEGPlug is powered from the mains power supply which it is plugged into - no additional power supplies or cables are required, everything is integrated into one clean and
+simple plug-in cable.
+
+SEGPlug sends and receives data and commands over a wireless radio mesh network, back to a gateway device which bridges the wireless mesh network onto an existing local area
+network which is connected to the Internet - over ethernet, and/or standard IEEE 802.11 wireless networking (Wi-Fi), or 3G or similar cellular networks.
+
+To ensure flexible compatibility with worldwide radiofrequency spectrum licensing and regulations and the device's local electromagnetic environment (with respect to spectrum
+congestion, interference, or electromagnetic shielding, reflection or attenuation by nearby structures materials in the environment) SEGPlug's radio communications are handled
+on a replaceable daughterboard which can be replaced and swapped with different boards or modules employing different communications frequencies or protocols.
+
+My in-house daughterboard design based around the Atmel ATmega128RFA1 radio/microcontroller can be used, thus providing connectivity over IPv6 / 6LoWPAN etc, as well as
+ZigBee. Alternatively, a commercial off-the-shelf product such as a Digi/MaxStream XBee module can be used, operating in the 2.4 GHz or 900 MHz spectra with the ZigBee or
+DigiMesh protocols (which are, at their lower layers, also built on the 802.15.4 standard.) A daughterboard based around a sub-gigahertz radio device such as the Texas
+Instruments CC1101 IC, operating in the 315/433/868/915 MHz bands can also be used, either in the form of a bespoke RF transceiver from us or a COTS device such as the
+Seeed RFBee module.
+
+SEGPlug also incorporates a temperature sensor, for measurement of the temperature in the local environment, a light sensor for sensing of the ambient light level, and support
+for an optional PIR motion sensor for the detection of motion and an automated response - for example, turning on the room lights and/or reporting a message to the network.
 
 ![Alt text](https://github.com/lukeweston/SEGPlug/raw/master/SEGplug-pcb.png)
 
-**General background notes and safety notes, and guidelines for reliable use**:
+*Engineering notes for hardware developers, prototype testers, and early adopters:*
 
-No hardware prototype of this design has been built yet. It might not work at all, it might catch fire, it might explode. Right now, no real support or warranty is even
-remotely possible until a prototype is built.
-
-Just so that we're very clear here, I'm not liable at all if you try and build this and it burns your house down and kills your family.
-
-This device uses a non-isolated, transformerless mains power supply, with the mains active serving as the local DC ground.
-What this means is that all parts of the device, including the microcontroller, XBee module, temperature sensor, and the light and PIR sensors if they're connected, are at
-mains potential when the device is plugged in, and they are an electric shock hazard. Do not not poke around with this device while it is powered up, with the device not
-mounted within a safe, insulated box, unless you know exactly what you're doing.
+This device uses a non-isolated, transformerless mains power supply, with the mains active serving as the local DC ground. What this means is that all parts of the device,
+including the microcontroller, XBee module, temperature sensor, and the light and PIR sensors if they're connected, are at mains potential when the device is plugged into the
+mains, and all components represent an electric shock hazard. Do not not poke around with this device while it is powered up, with the device not within an earthed enclosure,
+or a double-insulated plastic enclosure, unless you know exactly what you're doing.
 
 Also, DO NOT plug the device into any kind of FTDI cable, ISP programmer or any other serial communications interface or programming interface while it is plugged into the
 mains. If you do, this will connect your computer's local DC ground to the 240VAC active, and your computer will be destroyed and will probably explode or something, as well
@@ -37,7 +61,9 @@ current draw, whenever the XBee starts transmitting or something like that.
 
 High current means low capacitive reactance which means relatively big capacitor.
 
-Only use standard low-power XBee modules with this unit. The high-performance, relatively high power variants like the "XBee Pro" probably won't work.
+Commercial RF modules with relatively high power consumption, such as the Digi/Maxstream "XBee Pro" are unsupported with this system due to power supply constraints in this
+design variant and probably won't work reliably, although the standard, lower-power Digi/MaxStream XBee modules are supported. Basically, when using commercial third-party
+RF communications modules, the maximum device current consumption during transmission should not exceed 50 mA at 3.3 volts.
 
 It would straightforward to design a safe, optically-isolated plug-in serial cable interface for your computer if something like that was required... but at this point in
 time, no such device exists and plugging the unit into your computer (unless the mains is disconnected) is a big no-no.
@@ -50,8 +76,6 @@ the present time this has not been tested and is not supported at all.
 
 The control pushbutton must be rated for mains use. If there is not sufficient electrical isolation between the switch contacts and the plastic switch actuator, an electric
 shock hazard may exist during use of the button.
-
-**Construction notes**:
 
 In order to prevent electric shock, fire, explosion, death, etc, careful quality control is required if you're assembling this unit from a kit yourself. Solder everything
 carefully, and check that you've got the components oriented correctly with the right kinds of components in the right places.
