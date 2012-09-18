@@ -3,6 +3,7 @@
 
 Design by Luke Weston, 2011-2012
 (c) Luke Weston 2011-2012
+
 This hardware design is released to you under the CERN Open Hardware License: http://ohwr.org/cernohl
 
 The Smart Energy Groups SEGPlug is a small, visually unintrusive and portable device which plugs in to a domestic mains power outlet or cable and plugs into a mains-powered
